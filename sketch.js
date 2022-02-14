@@ -42,6 +42,7 @@ if (gameState=="serve"){
   ball.y=windowHeight-200
 }
 else if(gameState=="end"){
+   fill("black");
     text("Game Over", width/2-150,height/2);
     ball.remove;
   }
@@ -88,8 +89,13 @@ ball.bounceOff(edges[2])
 ball.bounceOff(player);
 ball.bounceOff(bricksGroup);
 
-function mouseClicked(){
-  ball.velocityX=7
-  ball.velocityY=5
-  }
+
 }
+function mouseClicked(){
+  if(gameState=="serve"){
+    gameState="play";
+    ball.velocityX=7
+    ball.velocityY=5
+  }
+  
+  }
